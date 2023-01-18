@@ -19,6 +19,10 @@ function getPosts(user) {
         albums_content.setAttribute("id", `${albums[i].id}`);
         albums_content.setAttribute("onclick", `showComments(this)`);
 
+        
+
+
+
         const subContainer = document.createElement("div");
 
         subContainer.appendChild(albums_content);
