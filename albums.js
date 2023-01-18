@@ -11,10 +11,9 @@ function getPosts(user) {
   fetch(`https://jsonplaceholder.typicode.com/users/${id}/albums`)
     .then((Response) => Response.json())
     .then((albums) => {
-      for (let i = 0; i < albums.length; i++) {
-        console.log(albums[i].title);
+      for (var i = 0; i < albums.length; i++) {
 
-        let albums_content = document.createElement("p");
+        const albums_content = document.createElement("p");
         albums_content.textContent = albums[i].title;
         albums_content.classList.add("js-body");
         albums_content.setAttribute("id", `${albums[i].id}`);
@@ -31,7 +30,7 @@ function getPosts(user) {
             const lastContainer = document.createElement("div");
             lastContainer.classList.add("lastContainer");
 
-        const postsContainer = document.querySelector(".test1");
+        const postsContainer = document.querySelector(".albums-Container");
         postsContainer.appendChild(subContainer);
       }
     });
@@ -40,7 +39,7 @@ function getPosts(user) {
 function showComments(ele) {
   localStorage.albumsID = JSON.stringify(ele.id);
   localStorage.albumBody = JSON.stringify(ele.innerHTML);
-  document.location.href = "/index3.html";
+  document.location.href = "/Photos.html";
 }
 
 

@@ -7,7 +7,7 @@ const albumsTitle = JSON.parse(localStorage.albumBody);
 document.addEventListener("DOMContentLoaded", () => {
 
 
-        let post_content = document.createElement("p");
+        const post_content = document.createElement("p");
         post_content.classList.add("post_content");
         post_content.textContent = albumsTitle
 
@@ -27,7 +27,7 @@ function getComments(postId) {
     fetch(`https://jsonplaceholder.typicode.com/albums/${postId}/photos`)
         .then((response) => response.json())
         .then(data => {
-            for (let i = 0; i < data.length; i++) {
+            for (var  i = 0; i < data.length; i++) {
                 if (data[i].albumId == postId) {
 
                     const photos=document.createElement("img");

@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function getInfo(event) {
     event.preventDefault()
-    var userName = document.getElementById("email").value
+    const userName = document.getElementById("email").value
     var user;
-    for (let i = 0; i < users.length; i++) {
+    for (var i = 0; i < users.length; i++) {
         if (users[i].email === userName) {
             user = users[i];
             break;
@@ -28,7 +28,7 @@ function getInfo(event) {
         document.getElementById('wrong-pass').innerHTML = "Wrong Email please Try again !!!!";
     } else {
         localStorage.setItem("currentUser", JSON.stringify(user));
-        document.location.href = "/index2.html"
+        document.location.href = "/albums.html"
     }
 
 }
