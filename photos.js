@@ -1,34 +1,20 @@
-const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-const userName=currentUser.username;
-const name1=currentUser.name;
-const postID = JSON.parse(localStorage.albumsID);
-const albumsTitle = JSON.parse(localStorage.albumBody);
+var queryString = window.location.search.substr(1);
 
 document.addEventListener("DOMContentLoaded", () => {
 
-
-        const post_content = document.createElement("p");
-        post_content.classList.add("post_content");
-        post_content.textContent = albumsTitle
-
-        const container=document.querySelector(".show-Photos")
-
-        const subContainer = document.createElement('div');
-        container.appendChild(post_content)
-
-
-    getComments(postID);
+    getPhotos(queryString);
 })
 
 
 
 
-function getComments(postId) {
-    fetch(`https://jsonplaceholder.typicode.com/albums/${postId}/photos`)
+function getPhotos(albumsId) {
+    const id=queryString
+    fetch(`https://jsonplaceholder.typicode.com/albums/${id}/photos`)
         .then((response) => response.json())
         .then(data => {
             for (var  i = 0; i < data.length; i++) {
-                if (data[i].albumId == postId) {
+                if (data[i].albumId == albumsId) {
 
                     const photos=document.createElement("img");
                     photos.src=data[i].thumbnailUrl

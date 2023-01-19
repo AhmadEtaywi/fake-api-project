@@ -1,13 +1,16 @@
+  var queryString = window.location.search.substr(1);
+
+
 document.addEventListener("DOMContentLoaded", () => {
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  getPosts(currentUser);
+  // const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  console.log(queryString);
+  getPosts(queryString);
+  
 });
 
-function getPosts(user) {
-  const id = user["id"];
-  const username = user["username"];
-  const name = user["name"];
-
+function getPosts(queryString) {
+  const id = queryString
+ 
   fetch(`https://jsonplaceholder.typicode.com/users/${id}/albums`)
     .then((Response) => Response.json())
     .then((albums) => {
@@ -40,10 +43,9 @@ function getPosts(user) {
     });
 }
 
-function showComments(ele) {
-  localStorage.albumsID = JSON.stringify(ele.id);
-  localStorage.albumBody = JSON.stringify(ele.innerHTML);
-  document.location.href = "/Photos.html";
+function showComments(eli) {
+  x=eli.id  
+  document.location.href = `/Photos.html?${x}`;
 }
 
 

@@ -27,8 +27,9 @@ function getInfo(event) {
     if (!user) {
         document.getElementById('wrong-pass').innerHTML = "Wrong Email please Try again !!!!";
     } else {
-        localStorage.setItem("currentUser", JSON.stringify(user));
-        document.location.href = "/albums.html"
+        // localStorage.setItem("currentUser", JSON.stringify(user));
+        var testUser=users[i].id;
+        document.location.href = `/albums.html?${testUser}`
     }
 
 }
